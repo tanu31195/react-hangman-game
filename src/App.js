@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import randomWords from 'random-words';
 import './App.css';
 
 import Header from "./components/Header";
@@ -9,9 +10,7 @@ import Notification from "./components/Notification";
 import Popup from "./components/Popup";
 import { showNotification as show } from "./helpers/helpers";
 
-const words = ['application', 'programming', 'interface', 'wizard'];
-
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+let selectedWord = randomWords();
 
 function App() {
     const [playable, setPlayable] = useState(true);
@@ -51,7 +50,7 @@ function App() {
 
         setCorrectLetters([]);
         setWrongLetters([]);
-        selectedWord = words[Math.floor(Math.random() * words.length)];
+        selectedWord = randomWords();
     }
 
     return (
