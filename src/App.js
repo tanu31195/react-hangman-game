@@ -9,14 +9,16 @@ import Word from "./components/Word";
 import Notification from "./components/Notification";
 import Popup from "./components/Popup";
 import { showNotification as show } from "./helpers/helpers";
+import Hint from "./components/Hint";
 
 let selectedWord = randomWords();
 
 function App() {
+    console.log(selectedWord);
     const [playable, setPlayable] = useState(true);
     const [correctLetters, setCorrectLetters] = useState([]);
     const [wrongLetters, setWrongLetters] = useState([]);
-    const [showNotification, setShowNotification] = useState([false]);
+    const [showNotification, setShowNotification] = useState(false);
 
     useEffect(() => {
        const handleKeydown = event => {
@@ -47,7 +49,6 @@ function App() {
 
     function playAgain() {
         setPlayable(true);
-
         setCorrectLetters([]);
         setWrongLetters([]);
         selectedWord = randomWords();
@@ -57,6 +58,7 @@ function App() {
         <>
             <Header/>
             <div className="game-container">
+                <Hint selectedWord={selectedWord} wrongLetters={wrongLetters}/>
                 <Figure wrongLetters={wrongLetters}/>
                 <WrongLetters wrongLetters={wrongLetters}/>
                 <Word selectedWord={selectedWord} correctLetters={correctLetters}/>
