@@ -1,13 +1,11 @@
 import React from 'react';
-// import {fetchDefinition} from "../helpers/helpers";
+import useHint from "../hooks/useHint";
 
-function Hint({selectedWord, wrongLetters}) {
-    // const definition = fetchDefinition(selectedWord);
-    const definition = 'def';
-    const errors = wrongLetters.length;
+function Hint({selectedWord}) {
+    const { hint } = useHint(selectedWord);
     return (
         <>
-        {errors > 3 && <p>Meaning of  {definition} </p>}
+        <p>Meaning is {hint} </p>
         </>
     );
 }

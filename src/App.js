@@ -58,10 +58,10 @@ function App() {
         <>
             <Header/>
             <div className="game-container">
-                <Hint selectedWord={selectedWord} wrongLetters={wrongLetters}/>
                 <Figure wrongLetters={wrongLetters}/>
                 <WrongLetters wrongLetters={wrongLetters}/>
                 <Word selectedWord={selectedWord} correctLetters={correctLetters}/>
+                {wrongLetters.length > 3 && <Hint selectedWord={selectedWord} /> }
             </div>
             <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain}/>
             <Notification showNotification={showNotification}/>
