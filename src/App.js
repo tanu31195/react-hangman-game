@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import randomWords from 'random-words';
 import './App.css';
+import './scss/styles.scss';
 
+import { showNotification as show } from "./helpers/helpers";
 import Header from "./components/Header";
 import Figure from "./components/Figure";
 import WrongLetters from "./components/WrongLetters";
 import Word from "./components/Word";
 import Notification from "./components/Notification";
 import Popup from "./components/Popup";
-import { showNotification as show } from "./helpers/helpers";
 import Hint from "./components/Hint";
+import ThemeMode from './components/ThemeChanger';
 
 let selectedWord = randomWords();
 
@@ -56,6 +58,7 @@ function App() {
 
     return (
         <>
+            <ThemeMode/>
             <Header/>
             <div className="game-container">
                 <Figure wrongLetters={wrongLetters}/>
